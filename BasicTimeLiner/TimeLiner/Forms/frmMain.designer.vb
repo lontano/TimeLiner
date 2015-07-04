@@ -22,19 +22,21 @@ Partial Class frmMain
   'No lo modifique con el editor de código.
   <System.Diagnostics.DebuggerStepThrough()> _
   Private Sub InitializeComponent()
-    Me.MenuStripMain = New System.Windows.Forms.MenuStrip
-    Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-    Me.ArxiuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.NovaTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.ObrirTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.DesarTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.DearTimelineComAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
-    Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator
-    Me.ObrirRecentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator
-    Me.TancarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-    Me.RecentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+    Me.MenuStripMain = New System.Windows.Forms.MenuStrip()
+    Me.ArxiuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.NovaTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator()
+    Me.ObrirTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ObrirRecentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.RecentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator()
+    Me.DesarTimelineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.DearTimelineComAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator()
+    Me.TancarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+    Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+    Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+    Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
     Me.MenuStripMain.SuspendLayout()
     Me.SuspendLayout()
     '
@@ -46,14 +48,6 @@ Partial Class frmMain
     Me.MenuStripMain.Size = New System.Drawing.Size(906, 24)
     Me.MenuStripMain.TabIndex = 0
     Me.MenuStripMain.Text = "MenuStrip1"
-    '
-    'StatusStrip1
-    '
-    Me.StatusStrip1.Location = New System.Drawing.Point(0, 539)
-    Me.StatusStrip1.Name = "StatusStrip1"
-    Me.StatusStrip1.Size = New System.Drawing.Size(906, 22)
-    Me.StatusStrip1.TabIndex = 1
-    Me.StatusStrip1.Text = "StatusStrip1"
     '
     'ArxiuToolStripMenuItem
     '
@@ -68,11 +62,34 @@ Partial Class frmMain
     Me.NovaTimelineToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
     Me.NovaTimelineToolStripMenuItem.Text = "Nova timeline..."
     '
+    'ToolStripMenuItem1
+    '
+    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(189, 6)
+    '
     'ObrirTimelineToolStripMenuItem
     '
     Me.ObrirTimelineToolStripMenuItem.Name = "ObrirTimelineToolStripMenuItem"
     Me.ObrirTimelineToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
     Me.ObrirTimelineToolStripMenuItem.Text = "Obrir timeline..."
+    '
+    'ObrirRecentsToolStripMenuItem
+    '
+    Me.ObrirRecentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecentsToolStripMenuItem})
+    Me.ObrirRecentsToolStripMenuItem.Name = "ObrirRecentsToolStripMenuItem"
+    Me.ObrirRecentsToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
+    Me.ObrirRecentsToolStripMenuItem.Text = "Obrir recents"
+    '
+    'RecentsToolStripMenuItem
+    '
+    Me.RecentsToolStripMenuItem.Name = "RecentsToolStripMenuItem"
+    Me.RecentsToolStripMenuItem.Size = New System.Drawing.Size(115, 22)
+    Me.RecentsToolStripMenuItem.Text = "Recents"
+    '
+    'ToolStripMenuItem2
+    '
+    Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
+    Me.ToolStripMenuItem2.Size = New System.Drawing.Size(189, 6)
     '
     'DesarTimelineToolStripMenuItem
     '
@@ -86,23 +103,6 @@ Partial Class frmMain
     Me.DearTimelineComAToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
     Me.DearTimelineComAToolStripMenuItem.Text = "Dear timeline com a ..."
     '
-    'ToolStripMenuItem1
-    '
-    Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-    Me.ToolStripMenuItem1.Size = New System.Drawing.Size(189, 6)
-    '
-    'ToolStripMenuItem2
-    '
-    Me.ToolStripMenuItem2.Name = "ToolStripMenuItem2"
-    Me.ToolStripMenuItem2.Size = New System.Drawing.Size(189, 6)
-    '
-    'ObrirRecentsToolStripMenuItem
-    '
-    Me.ObrirRecentsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RecentsToolStripMenuItem})
-    Me.ObrirRecentsToolStripMenuItem.Name = "ObrirRecentsToolStripMenuItem"
-    Me.ObrirRecentsToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-    Me.ObrirRecentsToolStripMenuItem.Text = "Obrir recents"
-    '
     'ToolStripMenuItem3
     '
     Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
@@ -114,11 +114,22 @@ Partial Class frmMain
     Me.TancarToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
     Me.TancarToolStripMenuItem.Text = "Tancar..."
     '
-    'RecentsToolStripMenuItem
+    'StatusStrip1
     '
-    Me.RecentsToolStripMenuItem.Name = "RecentsToolStripMenuItem"
-    Me.RecentsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-    Me.RecentsToolStripMenuItem.Text = "Recents"
+    Me.StatusStrip1.Location = New System.Drawing.Point(0, 539)
+    Me.StatusStrip1.Name = "StatusStrip1"
+    Me.StatusStrip1.Size = New System.Drawing.Size(906, 22)
+    Me.StatusStrip1.TabIndex = 1
+    Me.StatusStrip1.Text = "StatusStrip1"
+    '
+    'SaveFileDialog1
+    '
+    Me.SaveFileDialog1.Filter = "Arxius timeline (*.tml)|*.tml|Tots els arxius (*.*)|*.*"
+    '
+    'OpenFileDialog1
+    '
+    Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+    Me.OpenFileDialog1.Filter = "Arxius timeline (*.tml)|*.tml|Tots els arxius (*.*)|*.*"
     '
     'frmMain
     '
@@ -149,5 +160,6 @@ Partial Class frmMain
   Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripSeparator
   Friend WithEvents TancarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
   Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
-
+  Friend WithEvents SaveFileDialog1 As SaveFileDialog
+  Friend WithEvents OpenFileDialog1 As OpenFileDialog
 End Class
