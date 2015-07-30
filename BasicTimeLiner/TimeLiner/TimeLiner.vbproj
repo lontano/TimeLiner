@@ -74,7 +74,7 @@
   <ItemGroup>
     <Compile Include="Classes\ImageGroup.vb" />
     <Compile Include="Classes\ImageInfo.vb" />
-    <Compile Include="Classes\Project.vb" />
+    <Compile Include="Classes\TimeLine.vb" />
     <Compile Include="Classes\Subject.vb" />
     <Compile Include="Controls\SubjetView.Designer.vb">
       <DependentUpon>SubjetView.vb</DependentUpon>

@@ -109,7 +109,7 @@
       End Select
       If isImage Then
         Dim imgInfo As ImageInfo = Me.GetImageInfo(targetFile)
-
+        'Me.Images.Add(imgInfo)
       End If
     Catch ex As Exception
 
@@ -130,6 +130,7 @@
       res = New ImageInfo(path)
       _images.Add(res)
       Dim group As ImageGroup = Me.GetImageGroup(res)
+      group.Images.Add(res)
     End If
     Return res
   End Function
@@ -150,7 +151,7 @@
     Dim res As ImageGroup = Nothing
     Try
       For Each imgGroup As ImageGroup In _imageGroups
-        If imgGroup.GroupDate.Year = _date.Year And imgGroup.GroupDate.Month = _date.Month & imgGroup.GroupDate.Day = _date.Day Then
+        If imgGroup.GroupDate.Year = _date.Year And imgGroup.GroupDate.Month = _date.Month And imgGroup.GroupDate.Day = _date.Day Then
           res = imgGroup
           Exit For
         End If

@@ -37,6 +37,7 @@ Partial Class frmMain
     Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
     Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
     Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+    Me.TimeLineViewMain = New TimeLiner.TimeLineView()
     Me.MenuStripMain.SuspendLayout()
     Me.SuspendLayout()
     '
@@ -131,11 +132,23 @@ Partial Class frmMain
     Me.OpenFileDialog1.FileName = "OpenFileDialog1"
     Me.OpenFileDialog1.Filter = "Arxius timeline (*.tml)|*.tml|Tots els arxius (*.*)|*.*"
     '
+    'TimeLineViewMain
+    '
+    Me.TimeLineViewMain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+    Me.TimeLineViewMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+    Me.TimeLineViewMain.Location = New System.Drawing.Point(12, 27)
+    Me.TimeLineViewMain.Name = "TimeLineViewMain"
+    Me.TimeLineViewMain.Size = New System.Drawing.Size(882, 267)
+    Me.TimeLineViewMain.TabIndex = 2
+    Me.TimeLineViewMain.TimeLine = Nothing
+    '
     'frmMain
     '
     Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.ClientSize = New System.Drawing.Size(906, 561)
+    Me.Controls.Add(Me.TimeLineViewMain)
     Me.Controls.Add(Me.StatusStrip1)
     Me.Controls.Add(Me.MenuStripMain)
     Me.MainMenuStrip = Me.MenuStripMain
@@ -162,4 +175,5 @@ Partial Class frmMain
   Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
   Friend WithEvents SaveFileDialog1 As SaveFileDialog
   Friend WithEvents OpenFileDialog1 As OpenFileDialog
+  Friend WithEvents TimeLineViewMain As TimeLineView
 End Class

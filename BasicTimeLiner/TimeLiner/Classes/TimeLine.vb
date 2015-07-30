@@ -24,15 +24,14 @@
     End Set
   End Property
 
-    Private _subjects As New List(Of Subject)
-    Public Property Subjects() As List(Of Subject)
-        Get
-            Return _subjects
-        End Get
-        Set(ByVal value As List(Of Subject))
-            _subjects = value
-        End Set
-    End Property
-
+  Private _subjects As New List(Of Subject)
+  Public Property Subjects() As List(Of Subject)
+    Get
+      Return _subjects
+    End Get
+    Set(ByVal value As List(Of Subject))
+      _subjects = value
+    End Set
+  End Property
 #End Region
 End Class

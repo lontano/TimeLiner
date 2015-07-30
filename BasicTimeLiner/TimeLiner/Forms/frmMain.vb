@@ -5,6 +5,7 @@
   Private Sub MostrarTimeLine()
     Me.Text = _timeLine.Nom & " - " & _timeLine.Path
     If _changesPending Then Me.Text = Me.Text & "*"
+    Me.TimeLineViewMain.TimeLine = _timeLine
   End Sub
 
   Private Sub NovaTimelineToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NovaTimelineToolStripMenuItem.Click
