@@ -22,6 +22,8 @@
       AfegirSeparador()
     Next
     UpdateSize(Me.FlowLayoutPanelGroups)
+
+    Me.PictureBoxCanvas.Image = _timeLine.GetImage(Me.PictureBoxCanvas.Width, Me.PictureBoxCanvas.Height)
   End Sub
 
   Private Sub AfegirSubject(_subject As Subject)

@@ -134,12 +134,11 @@ Partial Class frmMain
     '
     'TimeLineViewMain
     '
-    Me.TimeLineViewMain.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
     Me.TimeLineViewMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-    Me.TimeLineViewMain.Location = New System.Drawing.Point(12, 27)
+    Me.TimeLineViewMain.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.TimeLineViewMain.Location = New System.Drawing.Point(0, 24)
     Me.TimeLineViewMain.Name = "TimeLineViewMain"
-    Me.TimeLineViewMain.Size = New System.Drawing.Size(882, 267)
+    Me.TimeLineViewMain.Size = New System.Drawing.Size(906, 515)
     Me.TimeLineViewMain.TabIndex = 2
     Me.TimeLineViewMain.TimeLine = Nothing
     '

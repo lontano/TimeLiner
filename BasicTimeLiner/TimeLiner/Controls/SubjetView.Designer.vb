@@ -50,7 +50,7 @@ Partial Class SubjetView
     Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
     Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
     Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-    Me.TableLayoutPanelAll.Size = New System.Drawing.Size(1059, 523)
+    Me.TableLayoutPanelAll.Size = New System.Drawing.Size(1059, 79)
     Me.TableLayoutPanelAll.TabIndex = 1
     '
     'LabelNom
@@ -72,10 +72,11 @@ Partial Class SubjetView
     '
     'FlowLayoutPanelGroups
     '
+    Me.FlowLayoutPanelGroups.BackColor = System.Drawing.SystemColors.ActiveCaption
     Me.FlowLayoutPanelGroups.Dock = System.Windows.Forms.DockStyle.Fill
     Me.FlowLayoutPanelGroups.Location = New System.Drawing.Point(123, 53)
     Me.FlowLayoutPanelGroups.Name = "FlowLayoutPanelGroups"
-    Me.FlowLayoutPanelGroups.Size = New System.Drawing.Size(898, 467)
+    Me.FlowLayoutPanelGroups.Size = New System.Drawing.Size(898, 23)
     Me.FlowLayoutPanelGroups.TabIndex = 5
     '
     'LabelInfo
@@ -94,7 +95,7 @@ Partial Class SubjetView
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.Controls.Add(Me.TableLayoutPanelAll)
     Me.Name = "SubjetView"
-    Me.Size = New System.Drawing.Size(1059, 523)
+    Me.Size = New System.Drawing.Size(1059, 79)
     Me.TableLayoutPanelAll.ResumeLayout(False)
     Me.TableLayoutPanelAll.PerformLayout()
     Me.ResumeLayout(False)

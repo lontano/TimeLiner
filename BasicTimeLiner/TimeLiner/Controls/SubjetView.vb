@@ -22,10 +22,23 @@
 
     Me.TextBoxNom.Text = _subject.Nom
     Me.LabelInfo.Text = _subject.ImageCount & " imatges a " & _subject.ImageGroups.Count & " grups"
+    MostrarImageGroups()
   End Sub
 
   Private Sub MostrarImageGroups()
     If _subject Is Nothing Then Exit Sub
+    Me.FlowLayoutPanelGroups.Controls.Clear()
+    _subject.ImageGroups.Sort()
+
+    For Each imgGroup As ImageGroup In _subject.ImageGroups
+      Dim pic As New PictureBox
+      pic.Height = Me.FlowLayoutPanelGroups.ClientRectangle.Height
+      pic.Width = pic.Height
+      pic.Image = imgGroup.GetImage(pic.Width, pic.Height)
+
+
+      Me.FlowLayoutPanelGroups.Controls.Add(pic)
+    Next
   End Sub
 
 

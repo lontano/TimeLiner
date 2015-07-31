@@ -33,5 +33,87 @@
       _subjects = value
     End Set
   End Property
+
+  Private _initDate As Date = New Date(2010, 07, 15)
+  Public Property InitDate As Date
+    Get
+      Return _initDate
+    End Get
+    Set(value As Date)
+      _initDate = value
+    End Set
+  End Property
+#End Region
+
+#Region "Image"
+  Public Function GetImage(width As Integer, height As Integer) As Bitmap
+    Dim res As Bitmap
+
+    Try
+      Dim groups As New List(Of ImageGroup)
+
+      Dim minHeight As Integer = Integer.MaxValue
+      Dim maxDays As Integer = Integer.MinValue
+      Dim lastLeft As Double = 0
+      Dim daysRight As Double = 0
+      Dim dayScale As Double = 1
+      Dim lastRight(_subjects.Count) As Double
+
+
+      For index As Integer = 0 To _subjects.Count - 1
+        Dim subject = _subjects(index)
+        lastRight(index) = 0
+        For Each group As ImageGroup In subject.ImageGroups
+          group.SubjectName = subject.Nom
+          group.Index = index
+          maxDays = Math.Max(group.Days, maxDays)
+          groups.Add(group)
+          For Each imgInfo As ImageInfo In group.Images
+            minHeight = Math.Min(imgInfo.Bitmap.Height, minHeight)
+          Next
+        Next
+      Next
+
+      minHeight = 300
+
+      groups.Sort()
+      res = New Bitmap(minHeight * groups.Count, minHeight * _subjects.Count)
+
+      dayScale = res.Width / maxDays
+
+      Dim g As Graphics = Graphics.FromImage(res)
+      g.Clear(Color.Green)
+
+
+      'For index As Integer = 0 To _subjects.Count - 1
+      '  Dim subject = _subjects(index)
+      '  Dim lastLeft As Double = 0
+      '  For Each group As ImageGroup In subject.ImageGroups
+
+      '  Next
+      'Next
+
+      For index As Integer = 0 To groups.Count - 1
+        Dim group As ImageGroup = groups(index)
+        Dim bmp As Bitmap = group.GetImage(minHeight, minHeight)
+
+        Dim row As Integer = group.Index ' index Mod rows
+        Dim col As Integer = index ' \ rows
+        Dim left As Double = col * minHeight
+        left = Math.Max(dayScale * group.Days, lastRight(group.Index))
+
+        lastLeft = left
+        lastRight(group.Index) = left + minHeight
+
+        g.DrawImage(bmp, New Rectangle(CInt(left), row * minHeight, minHeight, minHeight))
+        bmp.Dispose()
+      Next
+      g.Dispose()
+
+    Catch ex As Exception
+
+    End Try
+    Return res
+  End Function
 #End Region
 End Class

@@ -160,6 +160,7 @@
         res = New ImageGroup
         res.GroupDate = _date
         res.Nom = _date.Day & "-" & _date.Month & "-" & _date.Year
+        res.Days = _date.Subtract(Me.InitDate).Days
         _imageGroups.Add(res)
       End If
     Catch ex As Exception

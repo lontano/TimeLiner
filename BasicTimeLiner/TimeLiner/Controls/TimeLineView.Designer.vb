@@ -27,7 +27,11 @@ Partial Class TimeLineView
     Me.TextBoxNom = New System.Windows.Forms.TextBox()
     Me.FlowLayoutPanelGroups = New System.Windows.Forms.FlowLayoutPanel()
     Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+    Me.PictureBoxCanvas = New System.Windows.Forms.PictureBox()
+    Me.Panel1 = New System.Windows.Forms.Panel()
     Me.TableLayoutPanelAll.SuspendLayout()
+    CType(Me.PictureBoxCanvas, System.ComponentModel.ISupportInitialize).BeginInit()
+    Me.Panel1.SuspendLayout()
     Me.SuspendLayout()
     '
     'TableLayoutPanelAll
@@ -39,17 +43,15 @@ Partial Class TimeLineView
     Me.TableLayoutPanelAll.Controls.Add(Me.LabelNom, 0, 0)
     Me.TableLayoutPanelAll.Controls.Add(Me.TextBoxNom, 1, 0)
     Me.TableLayoutPanelAll.Controls.Add(Me.FlowLayoutPanelGroups, 1, 2)
+    Me.TableLayoutPanelAll.Controls.Add(Me.Panel1, 1, 1)
     Me.TableLayoutPanelAll.Dock = System.Windows.Forms.DockStyle.Fill
     Me.TableLayoutPanelAll.Location = New System.Drawing.Point(0, 0)
     Me.TableLayoutPanelAll.Name = "TableLayoutPanelAll"
     Me.TableLayoutPanelAll.RowCount = 3
     Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
-    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-    Me.TableLayoutPanelAll.Size = New System.Drawing.Size(849, 359)
+    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanelAll.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+    Me.TableLayoutPanelAll.Size = New System.Drawing.Size(849, 335)
     Me.TableLayoutPanelAll.TabIndex = 0
     '
     'LabelNom
@@ -73,10 +75,30 @@ Partial Class TimeLineView
     'FlowLayoutPanelGroups
     '
     Me.FlowLayoutPanelGroups.Dock = System.Windows.Forms.DockStyle.Fill
-    Me.FlowLayoutPanelGroups.Location = New System.Drawing.Point(123, 53)
+    Me.FlowLayoutPanelGroups.Location = New System.Drawing.Point(123, 183)
     Me.FlowLayoutPanelGroups.Name = "FlowLayoutPanelGroups"
-    Me.FlowLayoutPanelGroups.Size = New System.Drawing.Size(688, 303)
+    Me.FlowLayoutPanelGroups.Size = New System.Drawing.Size(688, 149)
     Me.FlowLayoutPanelGroups.TabIndex = 2
+    '
+    'PictureBoxCanvas
+    '
+    Me.PictureBoxCanvas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+    Me.PictureBoxCanvas.Location = New System.Drawing.Point(0, 3)
+    Me.PictureBoxCanvas.Name = "PictureBoxCanvas"
+    Me.PictureBoxCanvas.Size = New System.Drawing.Size(307, 13)
+    Me.PictureBoxCanvas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+    Me.PictureBoxCanvas.TabIndex = 3
+    Me.PictureBoxCanvas.TabStop = False
+    '
+    'Panel1
+    '
+    Me.Panel1.AutoScroll = True
+    Me.Panel1.Controls.Add(Me.PictureBoxCanvas)
+    Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+    Me.Panel1.Location = New System.Drawing.Point(123, 28)
+    Me.Panel1.Name = "Panel1"
+    Me.Panel1.Size = New System.Drawing.Size(688, 149)
+    Me.Panel1.TabIndex = 4
     '
     'TimeLineView
     '
@@ -84,9 +106,12 @@ Partial Class TimeLineView
     Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
     Me.Controls.Add(Me.TableLayoutPanelAll)
     Me.Name = "TimeLineView"
-    Me.Size = New System.Drawing.Size(849, 359)
+    Me.Size = New System.Drawing.Size(849, 335)
     Me.TableLayoutPanelAll.ResumeLayout(False)
     Me.TableLayoutPanelAll.PerformLayout()
+    CType(Me.PictureBoxCanvas, System.ComponentModel.ISupportInitialize).EndInit()
+    Me.Panel1.ResumeLayout(False)
+    Me.Panel1.PerformLayout()
     Me.ResumeLayout(False)
 
   End Sub
@@ -95,5 +120,7 @@ Partial Class TimeLineView
     Friend WithEvents LabelNom As Label
     Friend WithEvents TextBoxNom As TextBox
     Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
-    Friend WithEvents FlowLayoutPanelGroups As FlowLayoutPanel
+  Friend WithEvents FlowLayoutPanelGroups As FlowLayoutPanel
+  Friend WithEvents PictureBoxCanvas As PictureBox
+  Friend WithEvents Panel1 As Panel
 End Class

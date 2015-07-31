@@ -11,8 +11,6 @@
   Private Sub NovaTimelineToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NovaTimelineToolStripMenuItem.Click
     Try
       If Not ComprobarCanvis() Then Exit Sub
-
-
       _changesPending = True
       _timeLine = New TimeLine
       _timeLine.Nom = "new time line"
@@ -20,8 +18,19 @@
       Dim _subject As New Subject
       _subject.Nom = "Subject 1"
       _subject.Path = "C:\Users\Public\Pictures\Sample Pictures"
+      _subject.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Hugo"
+      _subject.InitDate = New Date(2010, 7, 15)
       _subject.UpdateImages()
       _timeLine.Subjects.Add(_subject)
+
+      Dim _subject2 As New Subject
+      _subject2.Nom = "Subject 2"
+      _subject2.Path = "C:\Users\Public\Pictures\Sample Pictures"
+      _subject2.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Tula"
+      _subject2.InitDate = New Date(2013, 03, 31)
+      _subject2.UpdateImages()
+      _timeLine.Subjects.Add(_subject2)
+
       MostrarTimeLine()
     Catch ex As Exception
 
@@ -46,7 +55,7 @@
           _changesPending = False
           MostrarTimeLine()
         End If
-        End If
+      End If
     Catch ex As Exception
 
     End Try
@@ -100,7 +109,7 @@
             res = False
         End Select
       Else
-          res = True
+        res = True
       End If
     Catch ex As Exception
 
@@ -129,11 +138,11 @@
             Return False
           End If
         End If
-          If _timeLine.Path <> "" Then
+        If _timeLine.Path <> "" Then
           SerializeObjectToFile(_timeLine.Path, _timeLine, False)
           _changesPending = False
         End If
-    Catch ex As Exception
+      Catch ex As Exception
 
       End Try
 
