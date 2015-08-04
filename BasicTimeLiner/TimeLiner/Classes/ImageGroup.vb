@@ -61,10 +61,16 @@
 #End Region
 
 #Region "Images"
-  Public Function GetImage(width As Integer, height As Integer) As Bitmap
-    Dim res As New Bitmap(width, height)
+  Public Function GetImage(height As Integer) As Bitmap
+    Dim res As New Bitmap(height, height)
 
     Try
+      Dim scale As Double = 1
+      If _images.Count > 0 Then
+        scale = _images(0).Bitmap.Width / _images(0).Bitmap.Height
+      End If
+      Dim width As Integer = scale * height
+      res = New Bitmap(width, height)
       Dim g As Graphics = Graphics.FromImage(res)
       g.Clear(Color.Red)
       'només la primera
@@ -77,7 +83,7 @@
         Dim bmp As Bitmap = _images(0).Bitmap
         g.DrawImage(bmp, New Rectangle(0, 0, _width, _height))
       Else
-        For index As Integer = 0 To _images.Count
+        For index As Integer = 0 To _images.Count - 1
           Dim bmp As Bitmap = _images(index).Bitmap
           Dim row As Integer = index Mod rows
           Dim col As Integer = index \ rows
@@ -85,7 +91,8 @@
           g.DrawImage(bmp, New Rectangle(row * _width, col * _height, _width, _height))
         Next
       End If
-
+      g.DrawString(Me.Days & " " & Me.GroupDate.Day & "-" & Me.GroupDate.Month & "-" & Me.GroupDate.Year, New Font("Verdana", 10), Brushes.Red, New PointF(0, 0))
+      g.Dispose()
 
 
     Catch ex As Exception

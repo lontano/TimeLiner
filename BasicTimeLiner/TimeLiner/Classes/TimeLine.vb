@@ -79,37 +79,50 @@
       groups.Sort()
       res = New Bitmap(minHeight * groups.Count, minHeight * _subjects.Count)
 
-      dayScale = res.Width / maxDays
+      dayScale = (res.Width / maxDays) * 0.75
 
       Dim g As Graphics = Graphics.FromImage(res)
-      g.Clear(Color.Green)
-
-
-      'For index As Integer = 0 To _subjects.Count - 1
-      '  Dim subject = _subjects(index)
-      '  Dim lastLeft As Double = 0
-      '  For Each group As ImageGroup In subject.ImageGroups
-
-      '  Next
-      'Next
+      g.Clear(Color.White)
 
       For index As Integer = 0 To groups.Count - 1
         Dim group As ImageGroup = groups(index)
-        Dim bmp As Bitmap = group.GetImage(minHeight, minHeight)
+        Dim bmp As Bitmap = group.GetImage(minHeight)
 
         Dim row As Integer = group.Index ' index Mod rows
         Dim col As Integer = index ' \ rows
         Dim left As Double = col * minHeight
-        left = Math.Max(dayScale * group.Days, lastRight(group.Index))
+
+        left = dayScale * group.Days
+        left = Math.Max(left, lastRight(group.Index))
 
         lastLeft = left
-        lastRight(group.Index) = left + minHeight
+        lastRight(group.Index) = left + bmp.Width
 
-        g.DrawImage(bmp, New Rectangle(CInt(left), row * minHeight, minHeight, minHeight))
+        g.DrawImage(bmp, New Rectangle(left, row * minHeight, bmp.Width, bmp.Height))
         bmp.Dispose()
       Next
       g.Dispose()
 
+      If True Then
+        Dim grayscale As New Imaging.ColorMatrix(New Single()() _
+        {
+            New Single() {0.299, 0.299, 0.299, 0, 0},
+            New Single() {0.587, 0.587, 0.587, 0, 0},
+            New Single() {0.114, 0.114, 0.114, 0, 0},
+            New Single() {0, 0, 0, 1, 0},
+            New Single() {0, 0, 0, 0, 1}
+        })
+
+        Dim bmpAux As New Bitmap(res)
+        Dim imgattr As New Imaging.ImageAttributes()
+        imgattr.SetColorMatrix(grayscale)
+        Using g2 As Graphics = Graphics.FromImage(bmpAux)
+          g2.DrawImage(bmpAux, New Rectangle(0, 0, bmpAux.Width, bmpAux.Height),
+                    0, 0, bmpAux.Width, bmpAux.Height,
+                    GraphicsUnit.Pixel, imgattr)
+        End Using
+        res = bmpAux
+      End If
     Catch ex As Exception
 
     End Try

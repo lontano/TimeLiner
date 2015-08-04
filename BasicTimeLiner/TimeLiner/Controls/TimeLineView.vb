@@ -15,13 +15,13 @@
     If _timeLine Is Nothing Then Exit Sub
 
     Me.TextBoxNom.Text = _timeLine.Nom
-    Me.FlowLayoutPanelGroups.Controls.Clear()
+    'Me.FlowLayoutPanelGroups.Controls.Clear()
 
-    For Each _subject As Subject In _timeLine.Subjects
-      AfegirSubject(_subject)
-      AfegirSeparador()
-    Next
-    UpdateSize(Me.FlowLayoutPanelGroups)
+    'For Each _subject As Subject In _timeLine.Subjects
+    '  AfegirSubject(_subject)
+    '  AfegirSeparador()
+    'Next
+    'UpdateSize(Me.FlowLayoutPanelGroups)
 
     Me.PictureBoxCanvas.Image = _timeLine.GetImage(Me.PictureBoxCanvas.Width, Me.PictureBoxCanvas.Height)
   End Sub

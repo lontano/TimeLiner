@@ -34,7 +34,7 @@
       Dim pic As New PictureBox
       pic.Height = Me.FlowLayoutPanelGroups.ClientRectangle.Height
       pic.Width = pic.Height
-      pic.Image = imgGroup.GetImage(pic.Width, pic.Height)
+      pic.Image = imgGroup.GetImage(pic.Height)
 
 
       Me.FlowLayoutPanelGroups.Controls.Add(pic)

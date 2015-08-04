@@ -3,9 +3,15 @@
   Private _timeLine As TimeLine
 
   Private Sub MostrarTimeLine()
-    Me.Text = _timeLine.Nom & " - " & _timeLine.Path
-    If _changesPending Then Me.Text = Me.Text & "*"
-    Me.TimeLineViewMain.TimeLine = _timeLine
+    Me.Cursor = Cursors.WaitCursor
+    Try
+      Me.Text = _timeLine.Nom & " - " & _timeLine.Path
+      If _changesPending Then Me.Text = Me.Text & "*"
+      Me.TimeLineViewMain.TimeLine = _timeLine
+    Catch ex As Exception
+
+    End Try
+    Me.Cursor = Cursors.Default
   End Sub
 
   Private Sub NovaTimelineToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NovaTimelineToolStripMenuItem.Click
