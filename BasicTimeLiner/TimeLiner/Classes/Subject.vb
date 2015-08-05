@@ -23,6 +23,9 @@
     End Get
     Set(ByVal value As Date)
       _initDate = value
+      For Each group As ImageGroup In Me.ImageGroups
+        group.Days = group.GroupDate.Subtract(Me.InitDate).Days
+      Next
     End Set
   End Property
 
@@ -77,6 +80,11 @@
         ProcessDirectory(_path)
       Else
         Console.WriteLine("{0} is not a valid file or directory.", Path)
+      End If
+
+      If Me.ImageGroups.Count > 0 Then
+        Me.ImageGroups.Sort()
+        Me.InitDate = Me.ImageGroups(0).GroupDate
       End If
     Catch ex As Exception
 

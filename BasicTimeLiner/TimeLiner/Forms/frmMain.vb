@@ -21,21 +21,39 @@
       _timeLine = New TimeLine
       _timeLine.Nom = "new time line"
 
-      Dim _subject As New Subject
-      _subject.Nom = "Subject 1"
-      _subject.Path = "C:\Users\Public\Pictures\Sample Pictures"
-      _subject.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Hugo"
-      _subject.InitDate = New Date(2010, 7, 15)
-      _subject.UpdateImages()
-      _timeLine.Subjects.Add(_subject)
+      Dim path As String = My.Application.Info.DirectoryPath
+      path = System.IO.Path.Combine(path, "Material")
 
-      Dim _subject2 As New Subject
-      _subject2.Nom = "Subject 2"
-      _subject2.Path = "C:\Users\Public\Pictures\Sample Pictures"
-      _subject2.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Tula"
-      _subject2.InitDate = New Date(2013, 03, 31)
-      _subject2.UpdateImages()
-      _timeLine.Subjects.Add(_subject2)
+      If System.IO.Directory.Exists(path) Then
+        Dim subdirectoryEntries As String() = System.IO.Directory.GetDirectories(path)
+        ' Recurse into subdirectories of this directory.
+        Dim subdirectory As String
+        For Each subdirectory In subdirectoryEntries
+          Dim _subject As New Subject
+          _subject.Nom = System.IO.Path.GetDirectoryName(subdirectory)
+          _subject.Path = subdirectory
+          '_subject.InitDate = New Date(2010, 7, 15)
+          _subject.UpdateImages()
+          _timeLine.Subjects.Add(_subject)
+        Next subdirectory
+      End If
+
+
+      'Dim _subject As New Subject
+      '_subject.Nom = "Subject 1"
+      '_subject.Path = "C:\Users\Public\Pictures\Sample Pictures"
+      '_subject.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Hugo"
+      '_subject.InitDate = New Date(2010, 7, 15)
+      '_subject.UpdateImages()
+      '_timeLine.Subjects.Add(_subject)
+
+      'Dim _subject2 As New Subject
+      '_subject2.Nom = "Subject 2"
+      '_subject2.Path = "C:\Users\Public\Pictures\Sample Pictures"
+      '_subject2.Path = "C:\Users\andr_ang.POSPOCEI.LOCAL\Pictures\Tula"
+      '_subject2.InitDate = New Date(2013, 03, 31)
+      '_subject2.UpdateImages()
+      '_timeLine.Subjects.Add(_subject2)
 
       MostrarTimeLine()
     Catch ex As Exception

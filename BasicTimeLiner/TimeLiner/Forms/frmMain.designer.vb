@@ -152,7 +152,7 @@ Partial Class frmMain
     Me.Controls.Add(Me.MenuStripMain)
     Me.MainMenuStrip = Me.MenuStripMain
     Me.Name = "frmMain"
-    Me.Text = "Form1"
+    Me.Text = "Time liner"
     Me.MenuStripMain.ResumeLayout(False)
     Me.MenuStripMain.PerformLayout()
     Me.ResumeLayout(False)
